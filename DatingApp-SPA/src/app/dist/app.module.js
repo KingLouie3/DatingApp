@@ -11,6 +11,8 @@ var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 var forms_1 = require("@angular/forms");
+var dropdown_1 = require("ngx-bootstrap/dropdown");
+var animations_1 = require("@angular/platform-browser/animations");
 var app_component_1 = require("./app.component");
 var nav_component_1 = require("./nav/nav.component");
 var home_component_1 = require("./home/home.component");
@@ -29,7 +31,9 @@ var AppModule = /** @class */ (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpClientModule,
-                forms_1.FormsModule
+                forms_1.FormsModule,
+                animations_1.BrowserAnimationsModule,
+                dropdown_1.BsDropdownModule.forRoot()
             ],
             providers: [
                 error_interceptor_1.ErrorInterceptorProvider

@@ -16,6 +16,7 @@ var ErrorInteceptor = /** @class */ (function () {
     ErrorInteceptor.prototype.intercept = function (req, next) {
         return next.handle(req).pipe(operators_1.catchError(function (error) {
             if (error.status === 401) {
+                console.log('test', error.statusText);
                 return rxjs_1.throwError(error.statusText);
             }
             if (error instanceof http_1.HttpErrorResponse) {
@@ -25,7 +26,7 @@ var ErrorInteceptor = /** @class */ (function () {
                 }
                 var serverError = error.error;
                 var modalStateErrors = '';
-                if (serverError.erros && typeof serverError.erros === 'object') {
+                if (serverError.errors && typeof serverError.errors === 'object') {
                     for (var key in serverError.errors) {
                         if (serverError.errors[key]) {
                             modalStateErrors += serverError.errors[key] + '\n';
