@@ -17,6 +17,11 @@ var app_component_1 = require("./app.component");
 var nav_component_1 = require("./nav/nav.component");
 var home_component_1 = require("./home/home.component");
 var register_component_1 = require("./register/register.component");
+var member_list_component_1 = require("./member-list/member-list.component");
+var lists_component_1 = require("./lists/lists.component");
+var messages_component_1 = require("./messages/messages.component");
+var router_1 = require("@angular/router");
+var routes_1 = require("./routes");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -26,14 +31,18 @@ var AppModule = /** @class */ (function () {
                 app_component_1.AppComponent,
                 nav_component_1.NavComponent,
                 home_component_1.HomeComponent,
-                register_component_1.RegisterComponent
+                register_component_1.RegisterComponent,
+                member_list_component_1.MemberListComponent,
+                lists_component_1.ListsComponent,
+                messages_component_1.MessagesComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpClientModule,
                 forms_1.FormsModule,
                 animations_1.BrowserAnimationsModule,
-                dropdown_1.BsDropdownModule.forRoot()
+                dropdown_1.BsDropdownModule.forRoot(),
+                router_1.RouterModule.forRoot(routes_1.appRoutes)
             ],
             providers: [
                 error_interceptor_1.ErrorInterceptorProvider

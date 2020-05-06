@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 var core_1 = require("@angular/core");
 var NavComponent = /** @class */ (function () {
-    function NavComponent(authService, alertify) {
+    function NavComponent(authService, alertify, router) {
         this.authService = authService;
         this.alertify = alertify;
+        this.router = router;
         this.model = {};
     }
     NavComponent.prototype.ngOnInit = function () {
@@ -21,6 +22,8 @@ var NavComponent = /** @class */ (function () {
             _this.alertify.success('Logged in successfully');
         }, function (error) {
             _this.alertify.error(error);
+        }, function () {
+            _this.router.navigate(['/members']);
         });
     };
     NavComponent.prototype.loggedIn = function () {
@@ -29,6 +32,7 @@ var NavComponent = /** @class */ (function () {
     NavComponent.prototype.logout = function () {
         localStorage.removeItem('token');
         this.alertify.message('Logged Out');
+        this.router.navigate(['/home']);
     };
     NavComponent = __decorate([
         core_1.Component({
